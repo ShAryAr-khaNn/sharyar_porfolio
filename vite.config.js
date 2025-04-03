@@ -12,6 +12,6 @@ import sitemap from 'vite-plugin-sitemap';
 export default defineConfig({
   plugins: [
     react(),
-    sitemap({ hostname: 'https://yourwebsite.com' }) // Replace with your domain
+    sitemap({ hostname: 'https://www.sharyarkhanshinka.online/' }) // Replace with your domain
   ]
 });
