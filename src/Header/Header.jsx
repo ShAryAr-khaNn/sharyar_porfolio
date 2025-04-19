@@ -24,7 +24,7 @@ function Header() {
               <div>
               <a href="/" className="flex gap-1 font-bold text-white text-3xl items-center">
                 <img src={sharyimage} alt="Logo" className="h-24 w-24 rounded-full mr-2" />
-                <span>SharyarFolio</span>
+                <span>Sharyar khan</span>
             </a>
               </div>
             </div>
