@@ -16,6 +16,7 @@ import Gred from './ImageShow/Gred'
 import Building from './ImageShow/Building'
 import Projects from './Dailywork/Projects'
 import ContactMe from './Contactme/ContactMe'
+import Vlog from './vlog/Vlog'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -34,6 +35,7 @@ function App() {
     <Route path="/contact" element={<Home />} />
     <Route path="/project" element={<Projects />} />
     <Route path="/contactme" element={<ContactMe />} />
+    <Route path="/vlog1234" element={<Vlog />} />
 
 
     </Routes>
