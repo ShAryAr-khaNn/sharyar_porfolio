@@ -1,3 +1,50 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+  ::selection {
+    @apply bg-accent text-white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-page px-5 sm:px-8;
+  }
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-accent;
+  }
+  .heading {
+    @apply font-display text-3xl font-medium tracking-tight text-ink sm:text-4xl;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+  .btn-primary {
+    @apply btn bg-ink text-paper hover:bg-accent;
+  }
+  .btn-ghost {
+    @apply btn border border-line text-ink hover:border-ink;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-white;
+  }
+  .tag {
+    @apply inline-block rounded-full bg-accent-tint px-3 py-1 text-xs font-medium text-accent;
+  }
+  .link {
+    @apply font-medium text-accent underline decoration-accent/30 underline-offset-4 transition-colors hover:decoration-accent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
