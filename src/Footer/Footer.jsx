@@ -1,40 +1,46 @@
-import React from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { profile, socials } from '../Data';
+import SocialIcon from '../components/SocialIcon';
 
-const Footer = () => {
-  // Contact information
-  const contactInfo = {
-    address: "Islamabad",
-    city: "Islamabad",
-    email: "ksharyar12345@gmail.com",
-    phone: "00923265652667"
-  };
-  
-
+function Footer() {
   return (
-    <footer className="bg-gray-800 text-white py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
-        {/* Contact Us Section */}
-        <ul className="text-sm md:flex-grow-1 md:text-left">
-          <li>{contactInfo.address}</li>
-          <li>{contactInfo.city}</li>
-          <li>{contactInfo.email}</li>
-          <li>{contactInfo.phone}</li>
-        </ul>
-        {/* Social Media Links */}
-        <div className="flex justify-center md:justify-end md:flex-grow-1">
-          <a href="https://github.com/sharyark" className="text-white mr-10">
-            <FaGithub size={24} />
+    <footer className="mt-24 bg-ink text-paper/80">
+      <div className="container-page grid gap-10 py-14 md:grid-cols-[1.4fr_1fr]">
+        <div>
+          <p className="font-display text-2xl text-paper">Have a project in mind?</p>
+          <p className="mt-2 max-w-md text-sm leading-relaxed">
+            I&apos;m open to freelance work, collaborations and full-time roles in AI engineering.
+          </p>
+          <a
+            href={`mailto:${profile.email}`}
+            className="mt-5 inline-block text-sm font-medium text-paper underline decoration-paper/30 underline-offset-4 hover:decoration-paper"
+          >
+            {profile.email}
           </a>
-          <a href="https://www.linkedin.com/in/sharyar-khan-2014251a5/" className="text-white mr-10">
-            <FaLinkedin size={24} />
-          </a>
-          <a href="https://instagram.com/sharyarkhan20" className="text-white mr-10">
-            <FaInstagram size={24} />
-          </a>
-          <a href="https://web.facebook.com/sharyar.shary.5243" className="text-white">
-            <FaFacebook size={24} />
-          </a>
+        </div>
+        <div className="flex flex-col gap-4 md:items-end">
+          <ul className="flex gap-2">
+            {socials.map((s) => (
+              <li key={s.name}>
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={s.name}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-paper/15 transition-colors hover:border-paper/50 hover:text-paper"
+                >
+                  <SocialIcon name={s.name} />
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="text-sm">{profile.location}</p>
+        </div>
+      </div>
+      <div className="border-t border-paper/10">
+        <div className="container-page flex flex-col gap-2 py-6 text-xs text-paper/50 sm:flex-row sm:justify-between">
+          <p>© {new Date().getFullYear()} {profile.name}</p>
+          <Link to="/contactme" className="hover:text-paper">Get in touch</Link>
         </div>
       </div>
     </footer>

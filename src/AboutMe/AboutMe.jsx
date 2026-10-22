@@ -1,62 +1,70 @@
-// import React from 'react';
-// import './AboutMe.css'; // Import your CSS file for styling
-// import { aboutInfo } from '../Data';
-// import { skills } from '../Data';
-// const AboutMe = () => {
+import { Link } from 'react-router-dom';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import photo from '../Header/sharyarimage.png';
+import { aboutInfo, profile, skillGroups } from '../Data';
+import PageHeader from '../components/PageHeader';
 
-//   return (
-//     <div className="about-me-container color relative color">
-//       <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://w0.peakpx.com/wallpaper/103/100/HD-wallpaper-razer-logo-red-razer-computer-logo.jpg')" }}></div>
-//       <div className="max-w-4xl mx-auto px-8 py-12 relative z-10">
-//         <h2 className="about-me-title text-4xl font-bold mb-8">My Story</h2>
-//         <p className="about-me-content text-2xl mb-8">{aboutInfo.story}</p>
-//         <div className="skills-container">
-//           <h3 className="skills-title text-3xl font-bold mb-4">Skills</h3>
-//           <ul className="skills-list">
-//             {skills.map((skill, index) => (
-//               <li key={index} className="skill-item">
-//                 <span className="skill-name">{skill.name}</span>
-//                 <div className="progress-bar">
-//                   <div className="progress" style={{ width: `${skill.level}%` }}></div>
-//                 </div>
-//               </li>
-//             ))}
-//           </ul>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default AboutMe;
-import React from 'react';
-import './AboutMe.css'; // Import your CSS file for styling
-import { aboutInfo } from '../Data';
-import { skills } from '../Data';
-
-const AboutMe = () => {
-
+function AboutMe() {
   return (
-    <div className="about-me-container color relative color">
-      <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('https://w0.peakpx.com/wallpaper/103/100/HD-wallpaper-razer-logo-red-razer-computer-logo.jpg')" }}></div>
-      <div className="max-w-4xl mx-auto px-8 py-12 relative z-10">
-        <h2 className="about-me-title text-4xl font-bold mb-8">My Story</h2>
-        <p className="about-me-content text-2xl mb-8">{aboutInfo.story}</p>
-        <div className="skills-container">
-          <h3 className="skills-title text-3xl font-bold mb-4">Skills</h3>
-          <ul className="skills-list">
-            {skills.map((skill, index) => (
-              <li key={index} className="skill-item">
-                <span className="skill-name">{skill.name}</span>
-                <div className="progress-bar">
-                  <div className="progress" style={{ width: `${skill.level}%` }}></div>
-                </div>
-              </li>
-            ))}
-          </ul>
+    <>
+      <PageHeader eyebrow="About" title="From circuits to AI agents" />
+
+      <section className="container-page grid gap-12 md:grid-cols-[1fr_1.6fr] md:gap-16">
+        <div>
+          <div className="max-w-sm overflow-hidden rounded-2xl">
+            <img
+              src={photo}
+              alt={`Portrait of ${profile.name}`}
+              className="aspect-square w-full scale-[1.04] object-cover object-top"
+            />
+          </div>
+          <dl className="mt-8 max-w-sm divide-y divide-line border-y border-line text-sm">
+            <div className="flex justify-between py-3">
+              <dt className="text-ink-muted">Based in</dt>
+              <dd className="font-medium">{profile.location}</dd>
+            </div>
+            <div className="flex justify-between py-3">
+              <dt className="text-ink-muted">Focus</dt>
+              <dd className="font-medium">Agentic AI</dd>
+            </div>
+            <div className="flex justify-between py-3">
+              <dt className="text-ink-muted">Degree</dt>
+              <dd className="font-medium">BS Computer Science</dd>
+            </div>
+          </dl>
         </div>
-      </div>
-    </div>
+
+        <div>
+          <div className="space-y-5 text-lg leading-relaxed text-ink-soft">
+            {aboutInfo.story.map((paragraph, i) => (
+              <p key={i}>{paragraph}</p>
+            ))}
+          </div>
+
+          <h2 className="heading mt-16 text-2xl sm:text-3xl">Skills</h2>
+          <div className="mt-8 space-y-6">
+            {skillGroups.map((group) => (
+              <div key={group.title} className="grid gap-3 border-t border-line pt-6 sm:grid-cols-[10rem_1fr]">
+                <h3 className="text-sm font-semibold">{group.title}</h3>
+                <ul className="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li key={item} className="tag">{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 flex flex-wrap gap-3">
+            <Link to="/project" className="btn-primary">
+              See my projects
+              <ArrowRightIcon className="h-4 w-4" aria-hidden="true" />
+            </Link>
+            <Link to="/academia" className="btn-ghost">Education</Link>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 
