@@ -9,7 +9,7 @@ function Footer() {
         <div>
           <p className="font-display text-2xl text-paper">Have a project in mind?</p>
           <p className="mt-2 max-w-md text-sm leading-relaxed">
-            I&apos;m open to freelance work, collaborations and full-time roles in AI engineering.
+            I&apos;m open to freelance work, collaborations and full-time roles in AI and full-stack engineering.
           </p>
           <a
             href={`mailto:${profile.email}`}

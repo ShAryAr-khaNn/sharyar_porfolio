@@ -9,7 +9,7 @@ function Projects() {
     <>
       <PageHeader eyebrow="Projects" title="Things I've built">
         <p>
-          A mix of AI agents, machine learning and hardware projects. More experiments live on{' '}
+          Business software for real clients, AI and machine-learning work, and hardware builds. More experiments live on{' '}
           <a href={github.href} target="_blank" rel="noopener noreferrer" className="link">GitHub</a>.
         </p>
       </PageHeader>

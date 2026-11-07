@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import photo from '../Header/sharyarimage.png';
-import { aboutInfo, profile, skillGroups } from '../Data';
+import { aboutInfo, experience, profile, skillGroups } from '../Data';
 import PageHeader from '../components/PageHeader';
 
 function AboutMe() {
   return (
     <>
-      <PageHeader eyebrow="About" title="From circuits to AI agents" />
+      <PageHeader eyebrow="About" title="From circuits to AI and full-stack software" />
 
       <section className="container-page grid gap-12 md:grid-cols-[1fr_1.6fr] md:gap-16">
         <div>
@@ -25,7 +25,7 @@ function AboutMe() {
             </div>
             <div className="flex justify-between py-3">
               <dt className="text-ink-muted">Focus</dt>
-              <dd className="font-medium">Agentic AI</dd>
+              <dd className="font-medium">AI & full-stack apps</dd>
             </div>
             <div className="flex justify-between py-3">
               <dt className="text-ink-muted">Degree</dt>
@@ -40,6 +40,25 @@ function AboutMe() {
               <p key={i}>{paragraph}</p>
             ))}
           </div>
+
+          <h2 className="heading mt-16 text-2xl sm:text-3xl">Experience</h2>
+          <ol className="mt-8 space-y-6">
+            {experience.map((job) => (
+              <li key={`${job.company}-${job.role}`} className="grid gap-2 border-t border-line pt-6 sm:grid-cols-[10rem_1fr]">
+                <p className="text-sm text-ink-muted">{job.period}</p>
+                <div>
+                  <h3 className="font-semibold">
+                    {job.role} <span className="font-normal text-ink-muted">· {job.company}, {job.location}</span>
+                  </h3>
+                  <ul className="mt-2 list-disc space-y-1 pl-5 text-[15px] leading-relaxed text-ink-soft">
+                    {job.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
 
           <h2 className="heading mt-16 text-2xl sm:text-3xl">Skills</h2>
           <div className="mt-8 space-y-6">
