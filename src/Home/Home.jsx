@@ -75,13 +75,13 @@ function Home() {
       <section className="container-page pt-20 sm:pt-24">
         <p className="eyebrow">Toolkit</p>
         <h2 className="heading mt-3">What I work with</h2>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <div key={group.title} className="card p-6">
               <h3 className="text-sm font-semibold text-ink">{group.title}</h3>
-              <ul className="mt-4 space-y-2 text-[15px] text-ink-soft">
+              <ul className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="tag">{item}</li>
                 ))}
               </ul>
             </div>
